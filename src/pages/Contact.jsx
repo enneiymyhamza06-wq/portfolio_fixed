@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { HiPhone, HiMail, HiLocationMarker } from "react-icons/hi";
-import { FaGithub, FaDiscord, FaYoutube } from "react-icons/fa";
-import { SiBehance } from "react-icons/si";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { IoSend } from "react-icons/io5";
+
+const EASE = [0.22, 1, 0.36, 1];
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
@@ -11,7 +14,9 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+    const subject = encodeURIComponent(form.subject || "Contact from Portfolio");
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
+    window.open(`mailto:enneiymyhamza06@gmail.com?subject=${subject}&body=${body}`);
   };
 
   return (
@@ -36,7 +41,12 @@ export default function Contact() {
       <div className="px-6 md:px-16 py-16 grid md:grid-cols-2 gap-12 items-start bg-[#0d0d0d]">
 
         {/* Left — Contact Info */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.65, ease: EASE }}
+        >
           <h3 className="text-xl font-bold text-white mb-2">Contact Information</h3>
           <p className="text-gray-400 text-sm mb-8">
             Feel free to reach out through any of the channels below.
@@ -58,26 +68,34 @@ export default function Contact() {
           </div>
 
           {/* Social Icons */}
-       <div className="flex gap-3">
-  {[
-    { icon: <FaGithub />, href: "#", color: "hover:bg-gray-700" },
-    { icon: <FaDiscord />, href: "#", color: "hover:bg-indigo-600" },
-    { icon: <SiBehance />, href: "#", color: "hover:bg-blue-600" },
-    { icon: <FaYoutube />, href: "#", color: "hover:bg-red-600" },
-  ].map((s, i) => (
-    <a
-      key={i}
-      href={s.href}
-      className={`w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white text-lg transition-all duration-200 ${s.color} hover:scale-110`}
-    >
-      {s.icon}
-    </a>
-  ))}
-</div>
-        </div>
+          <div className="flex gap-3">
+            {[
+              { icon: <FaGithub />, href: "https://github.com/enneiymyhamza06-wq", color: "hover:bg-gray-700" },
+              { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/hamza-enneiymy-216a853b3/", color: "hover:bg-blue-700" },
+              { icon: <FaInstagram />, href: "https://www.instagram.com/en_hmz1/", color: "hover:bg-pink-600" },
+              { icon: <FaXTwitter />, href: "https://x.com/HamzaE7888", color: "hover:bg-neutral-700" },
+            ].map((s, i) => (
+              <a
+                key={i}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white text-lg transition-all duration-200 ${s.color} hover:scale-110`}
+              >
+                {s.icon}
+              </a>
+            ))}
+          </div>
+        </motion.div>
 
-         <div className="bg-[#161616] border border-white/10 rounded-2xl p-8">
-          <div className="flex flex-col gap-5">
+        <motion.div
+          className="bg-[#161616] border border-white/10 rounded-2xl p-8"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.65, ease: EASE, delay: 0.12 }}
+        >
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
 
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-1.5">
@@ -126,15 +144,15 @@ export default function Contact() {
             </div>
 
             <button
-              onClick={handleSubmit}
+              type="submit"
               className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-semibold text-sm py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange-500/40"
             >
               Send Message
               <IoSend />
             </button>
 
-          </div>
-        </div>
+          </form>
+        </motion.div>
       </div>
     </section>
   );

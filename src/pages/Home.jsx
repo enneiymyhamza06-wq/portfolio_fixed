@@ -213,8 +213,7 @@ export default function Home() {
             </span>
           </div>
 
-          {/* Headline */}
-          <h1 className="max-w-3xl text-5xl font-black leading-[0.92] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+           <h1 className="max-w-3xl text-5xl font-black leading-[0.92] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
             <TypewriterText
               text="I'm Hamza"
               delay={300}
@@ -252,14 +251,14 @@ export default function Home() {
               <a
                 key={i}
                 href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ "--glow": s.glow, "--icon-color": s.color }}
                 className="group relative flex h-[68px] w-[68px] items-center justify-center rounded-2xl border border-white/[0.08] bg-white/[0.04] text-white/70 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-white/[0.16] hover:bg-white/[0.08] hover:text-[var(--icon-color)] hover:shadow-[0_0_24px_var(--glow),0_8px_32px_rgba(0,0,0,0.4)] active:translate-y-0 active:scale-95 [box-shadow:0_4px_0_rgba(0,0,0,0.5),0_8px_24px_rgba(0,0,0,0.3)]"
               >
-                {/* shimmer sweep */}
                 <div className="absolute inset-0 overflow-hidden rounded-2xl">
                   <div className="absolute -inset-full top-0 h-[200%] w-[60%] rotate-12 bg-gradient-to-r from-transparent via-white/[0.06] to-transparent translate-x-[-100%] transition-transform duration-700 group-hover:translate-x-[400%]" />
                 </div>
-                {/* top edge highlight */}
                 <div className="absolute inset-x-0 top-0 h-px rounded-t-2xl bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                 <span className="relative z-10 scale-[1.2] transition-transform duration-300 group-hover:scale-[1.35]">
                   {s.icon}
@@ -267,9 +266,9 @@ export default function Home() {
               </a>
             ))}
           </div>
-        </div>
 
-        {/* ──── RIGHT: photo + orbit + floating stat cards ──── */}
+        </div>
+        
         <div className="relative flex items-center justify-center">
            <div className="absolute h-[430px] w-[430px] rounded-full bg-orange-500/20 blur-3xl" />
           <div className="absolute h-[540px] w-[540px] rounded-full border border-orange-400/10" />

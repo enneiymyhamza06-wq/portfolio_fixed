@@ -2,142 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.icon-orbit {
-  position: absolute;
-  width: 540px;
-  height: 540px;
-  border-radius: 9999px;
-  animation: orbitSpin 20s linear infinite;
-  pointer-events: none;
-}
-
-.icon-orbit-item {
-  position: absolute;
-  animation: orbitCounterSpin 20s linear infinite;
-}
 * {
   cursor: none !important;
 }
 
-.tech-orbit-badge {
-  width: 64px;
-  height: 64px;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    linear-gradient(145deg, rgba(18, 18, 18, 0.95), rgba(30, 30, 30, 0.72));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 0 0 8px rgba(255, 255, 255, 0.015);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tech-orbit-badge:hover {
-  transform: scale(1.08);
-  box-shadow:
-    0 14px 36px rgba(0, 0, 0, 0.4),
-    0 0 28px rgba(255, 255, 255, 0.08);
-}
-
-.tech-orbit-badge.html {
-  color: #ff7a18;
-}
-.tech-orbit-badge.css {
-  color: #38bdf8;
-}
-.tech-orbit-badge.js {
-  color: #facc15;
-}
-.tech-orbit-badge.react {
-  color: #61dafb;
-}
-.tech-orbit-badge.php {
-  color: #777bb3;
-}
-.tech-orbit-badge.laravel {
-  color: #ff2d20;
-}
-
-.item-1 {
-  top: 1%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.item-2 {
-  top: 18%;
-  right: 3%;
-}
-
-.item-3 {
-  bottom: 18%;
-  right: 3%;
-}
-
-.item-4 {
-  bottom: 1%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.item-5 {
-  bottom: 18%;
-  left: 3%;
-}
-
-.item-6 {
-  top: 18%;
-  left: 3%;
-}
-
-@keyframes orbitSpin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
-
-@keyframes orbitCounterSpin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
-@media (max-width: 1024px) {
-  .icon-orbit {
-    width: 430px;
-    height: 430px;
-  }
-
-  .tech-orbit-badge {
-    width: 56px;
-    height: 56px;
-  }
-}
-
-@media (max-width: 640px) {
-  .icon-orbit {
-    width: 340px;
-    height: 340px;
-  }
-
-  .tech-orbit-badge {
-    width: 46px;
-    height: 46px;
-  }
-}
-
 
 .icon-orbit {
   --orbit-duration: 34s;
@@ -190,19 +64,29 @@
     0 0 18px rgba(255, 140, 0, 0.08);
 }
 
-.tech-orbit-badge.html { color: #ff7a18; }
-.tech-orbit-badge.css { color: #38bdf8; }
-.tech-orbit-badge.js { color: #facc15; }
-.tech-orbit-badge.react { color: #61dafb; }
-.tech-orbit-badge.php { color: #777bb3; }
+.tech-orbit-badge.html   { color: #ff7a18; }
+.tech-orbit-badge.css    { color: #38bdf8; }
+.tech-orbit-badge.js     { color: #facc15; }
+.tech-orbit-badge.react  { color: #61dafb; }
+.tech-orbit-badge.php    { color: #777bb3; }
 .tech-orbit-badge.laravel { color: #ff2d20; }
 
-.item-1 { top: 1%; left: 50%; transform: translateX(-50%); }
-.item-2 { top: 18%; right: 3%; }
-.item-3 { bottom: 18%; right: 3%; }
-.item-4 { bottom: 1%; left: 50%; transform: translateX(-50%); }
-.item-5 { bottom: 18%; left: 3%; }
-.item-6 { top: 18%; left: 3%; }
+.item-1 { top: 1%;     left: 50%;  transform: translateX(-50%); }
+.item-2 { top: 18%;    right: 3%;  }
+.item-3 { bottom: 18%; right: 3%;  }
+.item-4 { bottom: 1%;  left: 50%;  transform: translateX(-50%); }
+.item-5 { bottom: 18%; left: 3%;   }
+.item-6 { top: 18%;    left: 3%;   }
+
+@media (max-width: 1024px) {
+  .icon-orbit { width: 430px; height: 430px; }
+  .tech-orbit-badge { width: 56px; height: 56px; }
+}
+
+@media (max-width: 640px) {
+  .icon-orbit { width: 340px; height: 340px; }
+  .tech-orbit-badge { width: 46px; height: 46px; }
+}
 
 .fire-frame {
   transition:
@@ -252,21 +136,15 @@
   transition: opacity 0.35s ease;
 }
 
-.fire-frame:hover .fire-glow {
-  opacity: 1;
-  transform: scale(1.04);
-}
-
-.fire-frame:hover .fire-overlay {
-  opacity: 1;
-}
+.fire-frame:hover .fire-glow    { opacity: 1; transform: scale(1.04); }
+.fire-frame:hover .fire-overlay { opacity: 1; }
 
 @keyframes orbitSpin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to   { transform: rotate(360deg); }
 }
 
 @keyframes orbitCounterSpin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+  to   { transform: rotate(-360deg); }
 }

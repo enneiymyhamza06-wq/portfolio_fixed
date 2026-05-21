@@ -126,9 +126,23 @@ export default function Navbar() {
       }`}>
 
         {/* Logo */}
-        <div className="text-xl font-bold tracking-wide">
-          <span className="text-[#7f858f]">hamza</span>{" "}
-          <span className="text-orange-500">enneiymy</span>
+        <div className="flex items-center gap-2.5">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="navLogoGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#fb923c" />
+                <stop offset="100%" stopColor="#ea580c" />
+              </linearGradient>
+            </defs>
+            <rect x="1" y="1" width="34" height="34" rx="10" fill="rgba(251,146,60,0.08)" stroke="url(#navLogoGrad)" strokeWidth="1.2" />
+            <line x1="10.5" y1="10" x2="10.5" y2="26" stroke="url(#navLogoGrad)" strokeWidth="2.6" strokeLinecap="round" />
+            <line x1="25.5" y1="10" x2="25.5" y2="26" stroke="url(#navLogoGrad)" strokeWidth="2.6" strokeLinecap="round" />
+            <line x1="10.5" y1="18" x2="25.5" y2="18" stroke="url(#navLogoGrad)" strokeWidth="2.6" strokeLinecap="round" />
+          </svg>
+          <div className="leading-none">
+            <p className="text-[15px] font-black tracking-tight text-white leading-none">Hamza</p>
+            <p className="mt-[3px] text-[9.5px] font-semibold tracking-[0.22em] text-orange-500 uppercase leading-none">Enneiymy</p>
+          </div>
         </div>
 
         {/* Animated nav links — desktop */}

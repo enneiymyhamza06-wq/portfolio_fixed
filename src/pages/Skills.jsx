@@ -68,7 +68,7 @@ export default function Skills() {
   }, []);
 
   return (
-    <section id="skills" className="relative overflow-hidden bg-[#030303] text-white">
+    <section id="skills" className="relative overflow-hidden bg-[#030303] text-white pt-20">
 
       
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:60px_60px]" />
@@ -79,6 +79,7 @@ export default function Skills() {
         <motion.h1
           initial={{ opacity: 0.5, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
           className="bg-gradient-to-br from-orange-200 to-orange-500 py-4 bg-clip-text text-center font-black tracking-tight text-transparent text-5xl md:text-7xl"
         >

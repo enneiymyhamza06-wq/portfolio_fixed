@@ -8,44 +8,41 @@ import rashe from "../assets/rashe.png";
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Delicious Restaurant",
     category: "Full Stack",
     year: "2024",
-    description: "Plateforme e-commerce complète avec panier, paiement.",
-    tech: ["React", "sass"],
+    description: "Full e-commerce platform with shopping cart and payment integration, built with React and a custom backend.",
+    tech: ["React", "Sass", "Laravel"],
     image: restorant,
   },
   {
     id: 2,
-    title: "progect_yummy",
+    title: "Yummy Kitchen",
     category: "Web App",
     year: "2024",
-    description: "CMS personnalisé bach clients ydiro portfolio dyalhom.",
+    description: "Food recipe and restaurant discovery web application with a clean, modern UI.",
     tech: ["React", "Node.js"],
     image: progect_yummy,
   },
   {
     id: 3,
-    title: "moveis",
-    category: "moveis set web",
+    title: "CineTrack",
+    category: "Web App",
     year: "2023",
-    description: "set wabe avec menu digital.",
-    tech: ["React", "Stripe "],
+    description: "Movie discovery platform with search, filtering, and detailed movie info powered by a REST API.",
+    tech: ["React", "REST API"],
     image: moveis,
   },
   {
     id: 4,
-    title: "rashe",
+    title: "Rashe Estate",
     category: "Full Stack",
     year: "2023",
-    description: "Platform immobilière avec recherche avancée.",
-    tech: ["React", "Maps API"],
+    description: "Real estate platform with advanced property search and interactive map integration.",
+    tech: ["React", "Maps API", "Laravel"],
     image: rashe,
   }
 ];
-
-const CARD_WIDTH = window.innerWidth > 768 ? 600 : 320;
-const CARD_HEIGHT = window.innerWidth > 768 ? 450 : 400;
 
 
 
@@ -61,9 +58,10 @@ export default function Projects() {
   const startX = useRef(0);
   const startAngle = useRef(0);
 
+  const CARD_WIDTH = window.innerWidth > 768 ? 600 : 320;
+  const CARD_HEIGHT = window.innerWidth > 768 ? 450 : 400;
+
   const count = projects.length;
-  // Radius calculation for the INSIDE view cylinder
-  // We use negative Z translation later, so radius determines how far the walls are
   const radius = Math.round((CARD_WIDTH / 2) / Math.tan(Math.PI / count)) + 150;
   const angleStep = 360 / count;
 
